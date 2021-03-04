@@ -33,11 +33,11 @@ class ConvertUtils {
     for (final Map item in list) {
       final entity = AssetEntity(
         id: item['id'],
-        typeInt: item['type'],
-        duration: item['duration'],
-        width: item['width'],
-        height: item['height'],
-        orientation: item['orientation'],
+        typeInt: item['type'] ?? 1,
+        duration: item['duration'] ?? 0,
+        width: item['width'] ?? 0,
+        height: item['height'] ?? 0,
+        orientation: item['orientation'] ?? 0,
         isFavorite: item['favorite'] ?? false,
         title: item['title'],
         createDtSecond: item['createDt'],
@@ -54,7 +54,10 @@ class ConvertUtils {
   }
 
   static AssetEntity? convertToAsset(Map? map) {
-    final Map? data = map?['data'];
+    if (map == null) {
+      return null;
+    }
+    final Map? data = map['data'];
     if (data == null) {
       return null;
     }

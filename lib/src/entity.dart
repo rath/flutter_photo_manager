@@ -185,12 +185,12 @@ class AssetEntity {
   /// see [id]
   AssetEntity({
     required this.id,
-    required this.typeInt,
-    required this.duration,
-    required this.width,
-    required this.height,
-    required this.orientation,
-    required this.isFavorite,
+    this.typeInt = 1,
+    this.duration = 0,
+    this.width = 0,
+    this.height = 0,
+    this.orientation,
+    this.isFavorite = false,
     this.title,
     this.createDtSecond,
     this.modifiedDateSecond,
@@ -216,7 +216,7 @@ class AssetEntity {
   /// Asset type int value.
   ///
   /// see [type]
-  int typeInt;
+  int? typeInt;
 
   /// Duration of video, unit is second.
   ///
@@ -410,7 +410,7 @@ class AssetEntity {
   /// Example values for android: 0 90 180 270
   ///
   /// The value always 0 in iOS.
-  int orientation;
+  int? orientation;
 
   /// Android does not have this field, so it is always false.
   ///
